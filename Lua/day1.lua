@@ -1,3 +1,4 @@
+-- Day 1 Easy Challenge
 function ends_in_three(num)
     if num % 10 == 3 then 
         return true
@@ -28,3 +29,40 @@ function n_prime_numbers(num)
 end
 
 n_prime_numbers(3)
+
+-- Day 1 Medium Challenge
+function for_loop(start, finish, func)
+    local counter = start
+    while counter <= finish do
+        func(counter)
+        counter = counter + 1
+    end
+end
+
+for_loop(1, 5, print)
+
+-- Day 1 Hard Challenge
+
+function add(previous, next)
+    return previous + next
+end
+
+function multiply(previous, next)
+    return previous * next
+end
+
+function reduce(max, init, func)
+    local i = 1
+    local total = init
+    while i <= max do
+        total = func(total, i)
+        i = i + 1
+    end
+    return total
+end
+
+function factorial(n)
+    return reduce(n, 1, multiply)
+end
+
+print(factorial(10))
